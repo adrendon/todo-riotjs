@@ -1,7 +1,7 @@
 
 riot.tag('todo', '<div class="add" onclick="{ showAdd }"><i class="fa fa-plus"></i></div> <div class="title"><h1>{ opts.title }</h1></div> <div class="new-task"><a href="#" class="add-new" onclick="{ add }"><i class="fa fa-plus"></i></a> <input name="input" placeholder="New task"  onkeyup="{ edit }"/> </div> <ul> <li class="row { done: done }" each="{ items.filter(filter) }"> <a class="remove" onclick="{ parent.removeItem }"><i class="fa fa-trash-o"></i></a><a class="completed" onclick="{ parent.toggle }"><i class="fa fa-check"></i></a><span>{ title }</span> </li> </ul>', function(opts) {
   this.items = opts.items
-    
+
   this.edit = function(e) {
     this.text = e.target.value
     if (e.which == 13)
@@ -25,30 +25,30 @@ riot.tag('todo', '<div class="add" onclick="{ showAdd }"><i class="fa fa-plus"><
     item.done = !item.done
     return true
   }.bind(this)
-  
+
   this.removeItem = function(e) {
     var item = e.item
     item.hidden = true
     this.update()
     return true
-  }.bind(this)  
+  }.bind(this)
 
   this.showAdd = function(e) {
     $(".new-task").slideToggle();
   	  $("#todo-text").focus();
     return true
   }.bind(this)
-  
+
 })
 
 riot.mount('todo', {
-  title: "Things to do",
+  title: "Tareas",
   items: [
-    { title: 'Go to the bank', done: false, hidden: false },
-    { title: 'Buy food', done: true },
-    { title: 'Clean the house', done: false },
-    { title: 'Make dinner', done: false },
-    { title: 'Pick up the kids', done: false }
+    { title: 'Aprender Js', done: false, hidden: false },
+    { title: 'Aprender Meteor', done: true },
+    { title: 'Aprender js', done: false },
+    { title: 'Aprender Css3', done: false },
+    { title: 'Aprender php', done: false }
   ]
 });
 
